@@ -35,7 +35,9 @@ simulator {
 }
 
 config_pri_assets {
-    OTHER_FILES += $$quote($$BASEDIR/assets/main.qml)
+    OTHER_FILES += \
+        $$quote($$BASEDIR/assets/HelpSheet.qml) \
+        $$quote($$BASEDIR/assets/main.qml)
 }
 
 config_pri_source_group1 {

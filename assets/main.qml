@@ -15,7 +15,17 @@
  */
 
 import bb.cascades 1.2
+
 TabbedPane {
+    Menu.definition: MenuDefinition {
+        // Add a Help action
+        helpAction: HelpActionItem {
+            onTriggered: {
+                var help = helpSheetDefinition.createObject()
+                help.open();
+            }
+        }
+    }
     id: tabpane
     showTabsOnActionBar: true
     sidebarState: SidebarState.VisibleCompact
@@ -130,7 +140,7 @@ TabbedPane {
                 }
                 Label {
                     id: initmass_input_label_spec
-                    text: "Initial mass (kg, or 100%):"
+                    text: "Initial mass (kg, or 100):"
                 }
                 TextField {
                     id: initmass_spec
@@ -175,4 +185,12 @@ TabbedPane {
             }
         }
     }
+    attachedObjects: [
+        ComponentDefinition {
+            id: helpSheetDefinition
+            HelpSheet {
+            
+            }
+        }
+    ]
 }
